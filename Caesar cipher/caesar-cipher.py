@@ -20,4 +20,5 @@ while e == True:
 
     final_question = input("Would you like to continue? Type 'Yes' or 'No' \n").lower()
     if final_question == 'no':
+        print("Goodbye!")
         e = False
