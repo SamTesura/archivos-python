@@ -25,7 +25,7 @@ def caesar(text_1, shift_1, direction_1):
     z = ""
     for x in text_1:
         if x not in alphabet:
-            x += z
+            z += x
         else:
             i = alphabet.index(x)
             if direction_1 == "encode":
@@ -36,6 +36,6 @@ def caesar(text_1, shift_1, direction_1):
                 z += alphabet[i]
             
     if direction_1 == "encode":
-        print(f"The encoded text is {z}")
+        print(f"The encoded text is: {z}")
     elif direction_1 == "decode":
-        print(f"The decoded text is {z}")
+        print(f"The decoded text is: {z}")
