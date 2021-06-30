@@ -15,3 +15,27 @@ a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8
               88                                             
               88           
 """
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
+'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+def caesar(text_1, shift_1, direction_1):
+    i = 0
+    z = ""
+    for x in text_1:
+        if x not in alphabet:
+            x += z
+        else:
+            i = alphabet.index(x)
+            if direction_1 == "encode":
+                i += shift_1
+                z += alphabet[i]
+            elif direction_1 == "decode":
+                i -= shift_1
+                z += alphabet[i]
+            
+    if direction_1 == "encode":
+        print(f"The encoded text is {z}")
+    elif direction_1 == "decode":
+        print(f"The decoded text is {z}")
