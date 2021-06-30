@@ -1,4 +1,4 @@
-from art import logo, caesar
+from assets import logo, caesar
 
 print(logo)
 
