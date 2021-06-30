@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"name": "archivos-python",
+			"path": "."
+		},
+		{
+			"name": "Blind auction",
+			"path": "Blind auction"
+		},
+		{
+			"name": "Hangman",
+			"path": "Hangman"
+		},
+		{
+			"name": "Caesar cipher",
+			"path": "Caesar cipher"
+		}
+	],
+	"settings": {
+		"terminal.integrated.fontSize": 16,
+		"editor.fontFamily": "'Fira Coder', Consolas, 'Courier New', monospace",
+		"editor.fontSize": 16,
+		"editor.fontLigatures": true
+	}
+}

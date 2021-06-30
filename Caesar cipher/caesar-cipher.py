@@ -1,5 +1,6 @@
 from assets import logo, caesar
-
+import os
+os.system('cls')
 print(logo)
 
 while True:
@@ -21,8 +22,12 @@ while True:
     #Llamo a la función 'caesar' con sus parámetros.
     caesar(text, shift, direction)
 
+    #Mientras la variable 'final_question' no diga 'yes' o 'no' se mantiene preguntando
+    while True:
+        final_question = input("Would you like to continue? Type 'Yes' or 'No' \n").lower()
+        if final_question == "yes" or final_question == "no":
+            break
     #Pregunto si quiere terminar el programa o continuar
-    final_question = input("Would you like to continue? Type 'Yes' or 'No' \n").lower()
     if final_question == 'no':
         print("Goodbye!")
         break
