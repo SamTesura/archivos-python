@@ -5,16 +5,17 @@
 			"path": "."
 		},
 		{
-			"name": "Blind auction",
+			"name": "Calculator",
+			"path": "Calculator"
+		},
+		{
 			"path": "Blind auction"
 		},
 		{
-			"name": "Hangman",
-			"path": "Hangman"
+			"path": "Caesar cipher"
 		},
 		{
-			"name": "Caesar cipher",
-			"path": "Caesar cipher"
+			"path": "Hangman"
 		}
 	],
 	"settings": {
