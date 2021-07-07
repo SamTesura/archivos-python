@@ -19,6 +19,9 @@
 		},
 		{
 			"path": "Blackjack"
+		},
+		{
+			"path": "Guess the number"
 		}
 	],
 	"settings": {
