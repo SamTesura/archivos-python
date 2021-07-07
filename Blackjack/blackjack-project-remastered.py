@@ -75,7 +75,16 @@ def blackjack():
     
     #Comparacion final para ver cual es si el ganador es el user, el dealer o empate
     while True:
-        if total_user < total_pc  or total_user > 21:
+        if total_user > 21:
+            print(f"Your final hand: {cards_user}, final score: {total_user}")
+            print("You lose")
+            break
+        elif total_pc > 21:
+            print(f"Your final hand: {cards_user}, final score: {total_user}")
+            print(f"Computer's final hand: {cards_pc}, final score: {total_pc}")
+            print("You win!")
+            break                      
+        elif total_user < total_pc  or total_user > 21:
             print(f"Your final hand: {cards_user}, final score: {total_user}")
             print(f"Computer's final hand: {cards_pc}, final score: {total_pc}")
             print("You lose")
