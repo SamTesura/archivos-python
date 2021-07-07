@@ -31,7 +31,7 @@ def guess_the_number():
         else:
             error_int()
 
-    #Deifficulty. Hard: 5 attempts, Easy: 10 attempts
+    #Difficulty. Hard: 5 attempts, Easy: 10 attempts
     if dif_question == 'easy':
         attempts = 10
     elif dif_question == 'hard':
@@ -39,8 +39,16 @@ def guess_the_number():
 
     while True:
         print(f"You have {attempts} attempts remaining to guess the number.")
-        guessed = int(input("Make a guess: "))
         
+        while True:     #Loop to only accept numbers
+            guessed = input("Make a guess: ")
+            try: 
+                guessed = int(guessed)
+                break
+            except:
+                error_int()
+
+
         #comparison to see if it's equal to the correct answer or not
         #if guessed the answer wins
         if guessed == the_number:
