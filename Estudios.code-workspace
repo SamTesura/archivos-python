@@ -16,6 +16,9 @@
 		},
 		{
 			"path": "Hangman"
+		},
+		{
+			"path": "Blackjack"
 		}
 	],
 	"settings": {
