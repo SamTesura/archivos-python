@@ -5,6 +5,8 @@ def error_int():
 
 while True:
     os.system('cls')
+    
+
     while True:     #Loop to only accept floating
         h1 = input("h1: ")
         try: 
