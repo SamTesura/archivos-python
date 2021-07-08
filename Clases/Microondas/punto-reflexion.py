@@ -4,7 +4,6 @@ def error_int():
     print("ERROR! Intentelo de nuevo.")
 
 def punto_reflexion():
-# while True:
     os.system('cls')
     
     while True:     #Loop to only accept floating
@@ -57,8 +56,17 @@ def punto_reflexion():
             error_int()
 
     if question == 'si':
-        # break
         punto_reflexion()
         #Recursion. Call my function inside of itseld to start again from scratch
 
-punto_reflexion()
+while True:     #Loop to only accpet 'si' o 'no'
+    os.system('cls')
+    question = input("\nQuieres buscar el punto de reflexión entre dos puntos?\nEscribe 'si' o 'no': ").lower()
+    if question == "si" or question == "no":
+        break
+    else:
+        error_int()
+
+if question == 'si':
+    punto_reflexion()
+    #Start the program
