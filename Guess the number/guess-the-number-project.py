@@ -6,17 +6,16 @@ def error_int():
     print("ERROR! Intentelo de nuevo.")
 
 def win(the_correct_number):
-    print(f"You got it! The answer was {the_correct_number}.")
+    print(f"\nYou got it! The answer was {the_correct_number}.\n")
 
 def lose():
-    print("You've run out of guesses, you lose.")
+    print("\nYou've run out of guesses, you lose.\n")
 
 
 #-----------------------------------------------------------------
 
 #Main program
 def guess_the_number():
-    print("hi")
     os.system('cls')
     print(logo)
     print("Welcome to the Number Guessing Game!\nI'm thinking of a number between 1 and 100.")
@@ -25,7 +24,7 @@ def guess_the_number():
     the_number = random.randint(1, 100)
 
     while True:     #Loop to only accpet 'y' o 'n'
-        dif_question = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
+        dif_question = input("\nChoose a difficulty. Type 'easy' or 'hard': ").lower()
         if dif_question == "easy" or dif_question == "hard":
             break
         else:
@@ -38,7 +37,7 @@ def guess_the_number():
         attempts = 5
 
     while True:
-        print(f"You have {attempts} attempts remaining to guess the number.")
+        print(f"You have {attempts} attempts remaining to guess the number.\n")
         
         while True:     #Loop to only accept numbers
             guessed = input("Make a guess: ")
@@ -58,12 +57,12 @@ def guess_the_number():
         elif guessed != the_number:
             attempts -= 1  
             if guessed > the_number:
-                print("Too high.")
+                print("\nToo high.")
             elif guessed < the_number:
-                print("Too low.")
+                print("\nToo low.")
         #If has no more attempts, lose
         if attempts != 0:
-            print("Guess again")
+            print("\nGuess again")
         else:
             lose()
             break
