@@ -1,4 +1,16 @@
 import os
+def logo ():
+    print("""
+
+            _                                _           
+      /\/\ (_) ___ _ __ ___   ___  _ __   __| | __ _ ___ 
+     /    \| |/ __| '__/ _ \ / _ \| '_ \ / _` |/ _` / __|
+    / /\/\ \ | (__| | | (_) | (_) | | | | (_| | (_| \__ \
+
+    \/    \/_|\___|_|  \___/ \___/|_| |_|\__,_|\__,_|___/
+                                                        
+
+    """)
 
 def error_int():
     print("ERROR! Intentelo de nuevo.")
@@ -59,8 +71,12 @@ def punto_reflexion():
         punto_reflexion()
         #Recursion. Call my function inside of itseld to start again from scratch
 
+
+
+
 while True:     #Loop to only accpet 'si' o 'no'
     os.system('cls')
+    logo()
     question = input("\nQuieres buscar el punto de reflexión entre dos puntos?\nEscribe 'si' o 'no': ").lower()
     if question == "si" or question == "no":
         break

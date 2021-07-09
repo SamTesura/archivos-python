@@ -6,7 +6,7 @@ def error_int():
     print("ERROR! Intentelo de nuevo.")
 
 def win(the_correct_number):
-    print(f"\nYou got it! The answer was {the_correct_number}.\n")
+    print(f"\nYou got it! The answer was {the_correct_number}.\nt")
 
 def lose():
     print("\nYou've run out of guesses, you lose.\n")
