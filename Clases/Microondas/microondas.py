@@ -297,7 +297,7 @@ def analisis_fresnel():
     #Cálculo de lambda
     l_ambda_formula()
     l_ambda = c / (f*1000000000)
-    print(f"λ = {l_ambda}")
+    print(f"λ = {l_ambda} metros")
     #Cálculo de Fresnel
     rf = (math.sqrt((n*l_ambda*d1_*d2_)/(d1_+d2_)))*1000
     rf_formula()
