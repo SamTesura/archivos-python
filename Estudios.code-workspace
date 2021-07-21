@@ -22,6 +22,9 @@
 		},
 		{
 			"path": "Guess the number"
+		},
+		{
+			"path": "Higher lower"
 		}
 	],
 	"settings": {
