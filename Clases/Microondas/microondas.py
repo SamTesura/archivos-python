@@ -182,7 +182,7 @@ def analisis_fresnel():
         #Cálculo de h2
         h2 = (d/1000) * ((ht - ((h1*(d2_/1000))/(d/1000)) + (0.088*(d1_/1000)*(d2_/1000))) / (d1_/1000))
         print(assets.h2_formula)
-        print(f"h2 = {h2} mts.")
+        print(f"h2 = {h2} mts.\n")
         print(f"La altura minima de la antena receptora es {h2} metros")
 
 
