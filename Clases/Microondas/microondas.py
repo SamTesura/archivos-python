@@ -132,6 +132,10 @@ def analisis_fresnel():
     #Análisis de Fresnel. Datos
     #Entrada de la distancia total
     d = input_float("d (Km): ")
+    #Altura del punto 1
+    h1 = input_float("h1 (mt): ")
+    #Altura del punto 1
+    h2 = input_float("h2 (mt): ")
     #Entrada del punto más alto
     h0 = input_float("h0 (mt) Punto más alto: ")
     #Entrada de la distancia desde el punto de transmisión hasta el punto mas alto
@@ -158,6 +162,31 @@ def analisis_fresnel():
     rf = (math.sqrt((n*l_ambda*d1_*d2_)/(d1_+d2_)))
     print(assets.rf_formula)
     print (f"Rf = {rf} mt")
+    #Cálculo de la Altura total
+    ht = ((h1*(d2_/1000) + h2*(d1_/1000))/(d/1000)) - (0.088*(d1_/1000)*(d2_/1000))
+    print(assets.ht_formula)
+    print(f"ht = {ht} mts.\n")
+    #Cálculo de ht-h0
+    ht_h0 = ht-h0
+    print(f"ht-h0 = {ht} - {h0} = {ht_h0} mts\n")
+
+    if ht_h0 >= rf:
+        print("ht-h0 >= Rf ∴ El obstaculo no corta el radio de Fresnel\n")
+    elif ht_h0 < rf:
+        print("ht-h0 < Rf ∴ El obstaculo corta el radio de Fresnel\n")
+        print("¿Cuántos metros deberia aumentar a la antena receptora para evitar el corte?\n")
+        #Cálculo de ht
+        ht = h0 + rf
+        print(assets.ht_formula2)
+        print(f"ht = {ht} mts.\n")
+        #Cálculo de h2
+        h2 = (d/1000) * ((ht - ((h1*(d2_/1000))/(d/1000)) + (0.088*(d1_/1000)*(d2_/1000))) / (d1_/1000))
+        print(assets.h2_formula)
+        print(f"h2 = {h2} mts.")
+        print(f"La altura minima de la antena receptora es {h2} metros")
+
+
+
     #THE FINAL QUESTION
     selection_menu()
 
