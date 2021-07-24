@@ -4,6 +4,15 @@ import os
 
 ERROR_MSG = ">> ERROR! Intentelo de nuevo.\n"
 
+menu = """
+------------------------------------------------------------------   
+SELECCIONE SU CÁLCULO DESEADO:
+1. Linea de vista, perdida en el espacio libre y punto de recepción
+2. Punto de reflexión
+3. Análisis de fresnel
+4. Rango de frecuencias
+0. Salir\n"""
+
 #Funciones auxiliares
 def input_float(msg):
     while True:
@@ -16,15 +25,7 @@ def input_float(msg):
 #***Menú de selección***
 def selection_menu():
     while True:     #Loop to only accept floating
-        print("""
-    ------------------------------------------------------------------   
-    SELECCIONE SU CÁLCULO DESEADO:
-    1. Linea de vista, perdida en el espacio libre y punto de recepción
-    2. Punto de reflexión
-    3. Análisis de fresnel
-    4. Rango de frecuencias
-    0. Salir
-    """)
+        print(menu)
 
         question = input("    >> ")
         try:
