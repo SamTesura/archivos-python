@@ -27,7 +27,7 @@ def selection_menu():
     while True:     #Loop to only accept floating
         print(menu)
 
-        question = input("    >> ")
+        question = input("    >> ").lower
         try:
             question = int(question)
             break

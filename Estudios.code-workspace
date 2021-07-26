@@ -28,6 +28,9 @@
 		},
 		{
 			"path": "Clases\\Microondas"
+		},
+		{
+			"path": "Coffee machine"
 		}
 	],
 	"settings": {
