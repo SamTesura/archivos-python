@@ -10,53 +10,50 @@ logo = """
 # |__  /  \ |__)  |\/| |  | |     /\  /__` 
 # |    \__/ |  \  |  | \__/ |___ /~~\ .__/ 
                                          
-#***Fórmulas de perdida espacio libre***
-d_max_formula = "\nDmax = 4.12•[√(h1)+√(h2)]"
-
-lo_formula = "\nLo dB = 32.5+20•log(d(km))+20•log(f(GHz))"
-
-ptx_dbm_formula = "\nP(dBm) = 10•log10(1000•Ptx)"
-
-prx_formula = "Prx(dBm) = Ptx(dbm) + Gtx(dB) + Grx(dB) - Lo(dB)"
-
 #***Fórmulas de punto de reflexión***
-c_formula = """
-    (h1-h2)
-c = -------
-    (h1+h2)\n"""
+def c_formula(x):
+    print(f"""
+        (h1-h2)
+    c = ------- = {x}
+        (h1+h2)\n""")
 
-m_formula = """
-            (d^2)
-m = -----------------------------
-    4•k•a•((0.001•h1)+(0.001•h2))\n"""
+def m_formula(x):
+    print(f"""
+                (d^2)
+    m = ----------------------------- = {x}
+        4•k•a•((0.001•h1)+(0.001•h2))\n""")
 
-b_formula = """
-        c
-b = -------------   o buscar en la tabla         
-    [1+m•√(1-c2)]\n"""
-
-d1_formula = "\nd1 = (d/2)*(1+b)"
-
-d2_formula = "\nd2 = (d/2)*(1-b) o d2 = d-d1\n"
+def b_formula(x):
+    print(f"""
+            c
+    b = -------------   o buscar en la tabla = {x}         
+        [1+m•√(1-c2)]\n""")
 
 #Fórmulas del análisis de Fresnel
-rf_formula = """
-          ___________
-         / n•λ•d1•d2
-Rf = \  /  ---------
-      \/     d1+d2\n"""
+def rf_formula(x):
+    print(f"""
+              ___________
+             / n•λ•d1•d2
+    Rf = \  /  ---------  = {x} mts
+          \/     d1+d2\n""")
 
-l_ambda_formula = "λ = C/f"
+def ht_formula(x):
+    print(f"""
+        h1•d2 + h2•d1
+    ht = ---------------  -  0.0588•d1•d2 = {x} mts
+            d\n""")
 
-ht_formula = """
-      h1•d1 + h2•d2
-ht = ---------------  -  0.88•d1•d2
-           d\n"""
+def h1_formula(x):
+    print(f"""
+            (ht - (h2•d1 / d) + (0.0588•d1•d2))
+    h1 = d • ------------------------------------ = {x} mts
+                            d2
+    """)
 
-ht_formula2 = "ht = h0 + rf\n"
-
-h2_formula = """
-          (ht - (h1•d2 / d) + (0.088•d1•d2))
-h2 = d • ------------------------------------
-                        d1
-"""
+def h2_formula(x):
+    print(f"""
+            (ht - (h1•d2 / d) + (0.0588•d1•d2))
+    h2 = d • ------------------------------------ = {x} mts
+                            d1
+    """)
+    

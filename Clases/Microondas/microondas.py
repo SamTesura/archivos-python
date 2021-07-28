@@ -24,14 +24,9 @@ def input_float(msg):
 
 #***Menú de selección***
 def selection_menu():
-    while True:     #Loop to only accept floating
-        print(menu)
-
-        question = input("    >> ").lower
-        try:
-            question = int(question)
-            break
-        except: print(ERROR_MSG)
+    
+    print(menu)
+    question = input_float("    >> ")
 
     if  question == 1:
         perdida_espaciolibre()
@@ -61,17 +56,15 @@ def perdida_espaciolibre():
     #Altura del punto 1
     h2 = input_float("h2 (mts): ")
     #Linea de vista
-    d_max = 4.12*(math.sqrt(h1)+math.sqrt(h2))
-    print(assets.d_max_formula)
-    print(f"Dmax = {d_max} Kms. *Linea de vista*\n")
+    d_max = round(4.12*(math.sqrt(h1)+math.sqrt(h2)), 2)
+    print(f"\nDmax = 4.12•[√(h1)+√(h2)] = {d_max} Kms. *Linea de vista*\n")
     #Distancia desde el punto 1 hasta el punto 2
     d = input_float("d (Km): ")
     #frecuencia
     f = input_float("frecuencia (GHz): ")
     #Pérdida en el espacio libre
-    lo = 32.5+20*math.log10(d)+20*math.log10(f*1000)
-    print(assets.lo_formula)
-    print(f"Lo dB = {lo} dB\n")
+    lo = round(32.5+20*math.log10(d)+20*math.log10(f*1000), 2)
+    print(f"\nLo dB = 32.5+20•log(d(km))+20•log(f(GHz)) = {lo} dB\n")
     #Potencia de la antena emisora
     ptx = input_float("Potencia de la antena emisora (Watts): ")
     #Ganancia de la antena transmisor
@@ -79,13 +72,11 @@ def perdida_espaciolibre():
     #Ganancia de la antena receptora
     grx = input_float("Ganancia de la antena receptora (dB): ")
     #Potencia del emisor en dBm
-    ptx_dbm = 10*math.log10(1000*ptx)
-    print(assets.ptx_dbm_formula)
-    print(f"Ptx en dBm = {ptx_dbm}\n")
+    ptx_dbm = round(10*math.log10(1000*ptx), 2)
+    print(f"\nPtx en dBm = 10•log10(1000•Ptx) = {ptx_dbm}")
     #Potencia del receptor
-    prx = ptx_dbm + gtx + grx - lo
-    print(assets.prx_formula)
-    print(f"Prx = {prx} dBm")
+    prx = round(ptx_dbm + gtx + grx - lo, 2)
+    print(f"\nPrx = Ptx(dbm) + Gtx(dB) + Grx(dB) - Lo(dB) = {prx} dBm")
     #THE FINAL QUESTION
     selection_menu()
 
@@ -105,25 +96,21 @@ def punto_reflexion():
     os.system('cls')
     print(f"h1: {h1} mts \nh2: {h2} mts \nd: {d} kms\n")
     #Cálculo de c
-    c = (h1-h2)/(h1+h2)
-    print(assets.c_formula)
-    print(f"c = {c}")
+    c = round((h1-h2)/(h1+h2), 2)
+    assets.c_formula(c)
     #Cálculo de m
-    m = (((d)**2)/(4*k*a*((0.001*h1)+(0.001*h2))))
-    print(assets.m_formula)
-    print(f"m = {m}")
+    m = round((((d)**2)/(4*k*a*((0.001*h1)+(0.001*h2)))), 2)
+    assets.m_formula(m)
     #Cálculo de b o buscar en la tabla
-    b = c/(1+m*(math.sqrt(1-(c**2))))
-    print(assets.b_formula)
-    print(f"b = {c}\n")
+    b = round(c/(1+m*(math.sqrt(1-(c**2)))), 2)
+    assets.b_formula(c)
     #Cálculo de d1
-    d1 = (d/2)*(1+b)
-    print(assets.d1_formula)    
-    print(f"d1 = {d1} Km\n")
+    d1 = round((d/2)*(1+b), 2)
+    print(f"d1 = (d/2)*(1+b) = {d1} Km\n")
     #Cálculo de d2    
-    d2 = (d/2)*(1-b)
-    print(assets.d2_formula)
-    print(f"d2 = {d2} Km")
+    d2 = round((d/2)*(1-b), 2)
+    print(f"d2 = (d/2)*(1-b) o d2 = d-d1 = {d2} Km")
+    
     #THE FINAL QUESTION
     selection_menu()
 
@@ -155,38 +142,37 @@ def analisis_fresnel():
     d *= 1000
     d1_ *= 1000
     d2_ *= 1000
+    
     #Cálculo de lambda
-    print(assets.l_ambda_formula)
-    l_ambda = c / (f*1000000000)
-    print(f"λ = {l_ambda} metros")
+    l_ambda = round(c / (f*1000000000),2)
+    print(f"λ = C/f = {l_ambda} metros")
     #Cálculo de Fresnel
-    rf = (math.sqrt((n*l_ambda*d1_*d2_)/(d1_+d2_)))
-    print(assets.rf_formula)
-    print (f"Rf = {rf} mt")
+    rf = round((math.sqrt((n*l_ambda*d1_*d2_)/(d1_+d2_))),2)
+    assets.rf_formula(rf)
     #Cálculo de la Altura total
-    ht = ((h1*(d2_/1000) + h2*(d1_/1000))/(d/1000)) - (0.088*(d1_/1000)*(d2_/1000))
-    print(assets.ht_formula)
-    print(f"ht = {ht} mts.\n")
+    ht = round(((h1*(d2_/1000) + h2*(d1_/1000))/(d/1000)) - (0.0588*(d1_/1000)*(d2_/1000)), 2)
+    assets.ht_formula(ht)
     #Cálculo de ht-h0
-    ht_h0 = ht-h0
+    ht_h0 = round(ht-h0, 0)
     print(f"ht-h0 = {ht} - {h0} = {ht_h0} mts\n")
 
     if ht_h0 >= rf:
         print("ht-h0 >= Rf ∴ El obstaculo no corta el radio de Fresnel\n")
+    
     elif ht_h0 < rf:
         print("ht-h0 < Rf ∴ El obstaculo corta el radio de Fresnel\n")
-        print("¿Cuántos metros deberia aumentar a la antena receptora para evitar el corte?\n")
+        print("¿Cuántos metros deberia aumentar a la antena transmisora/receptora para evitar el corte?\n")
         #Cálculo de ht
-        ht = h0 + rf
-        print(assets.ht_formula2)
-        print(f"ht = {ht} mts.\n")
-        #Cálculo de h2
-        h2 = (d/1000) * ((ht - ((h1*(d2_/1000))/(d/1000)) + (0.088*(d1_/1000)*(d2_/1000))) / (d1_/1000))
-        print(assets.h2_formula)
-        print(f"h2 = {h2} mts.\n")
+        ht = round(h0 + rf, 2)
+        print(f"ht = h0 + rf = {ht} mts\n")
+        #Cálculo de h1
+        h1_min = round((d/1000) * ((ht - ((h2*(d1_/1000))/(d/1000)) + (0.088*(d1_/1000)*(d2_/1000))) / (d2_/1000)), 2)
+        assets.h1_formula(h1_min)
+        print(f"La altura minima de la antena transmisora es {h1} metros\n")
+    #Cálculo de h2
+        h2_min = round((d/1000) * ((ht - ((h1*(d2_/1000))/(d/1000)) + (0.088*(d1_/1000)*(d2_/1000))) / (d1_/1000)), 2)
+        assets.h2_formula(h2_min)
         print(f"La altura minima de la antena receptora es {h2} metros")
-
-
 
     #THE FINAL QUESTION
     selection_menu()
