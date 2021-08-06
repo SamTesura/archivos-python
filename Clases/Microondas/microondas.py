@@ -129,7 +129,7 @@ def analisis_fresnel():
     #Entrada de la distancia desde el punto de transmisión hasta el punto mas alto
     d1_ = input_float("d1 (Km) (fresnel): ")
     #distancia desde el punto de mas alto hasta el punto de recepción
-    d2_ = d - d1_
+    d2_ = round(d - d1_,2)
     print(f"d2 (km) (fresnel): {d2_}")
     #Entrada de la frecuencia
     f = input_float("frecuencia (GHz): ")
@@ -168,11 +168,11 @@ def analisis_fresnel():
         #Cálculo de h1
         h1_min = round((d/1000) * ((ht - ((h2*(d1_/1000))/(d/1000)) + (0.088*(d1_/1000)*(d2_/1000))) / (d2_/1000)), 2)
         assets.h1_formula(h1_min)
-        print(f"La altura minima de la antena transmisora es {h1} metros\n")
+        print(f"La altura minima de la antena transmisora es {h1_min} metros\n")
     #Cálculo de h2
         h2_min = round((d/1000) * ((ht - ((h1*(d2_/1000))/(d/1000)) + (0.088*(d1_/1000)*(d2_/1000))) / (d1_/1000)), 2)
         assets.h2_formula(h2_min)
-        print(f"La altura minima de la antena receptora es {h2} metros")
+        print(f"La altura minima de la antena receptora es {h2_min} metros")
 
     #THE FINAL QUESTION
     selection_menu()
